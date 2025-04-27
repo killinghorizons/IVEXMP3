@@ -23,9 +23,9 @@ export default function Home() {
           {metadataList.length > 0 && <ExportButtons data={metadataList} />}
           {/* Datatable */}
           {isLoading && (
-            <div className="text-center py-4">
+            <p className="flex flex-col items-center py-4 gap-2 w-full">
               Loading metadata... {progress.completed} of {progress.total} files
-            </div>
+            </p>
           )}
           {metadataList.length > 0 && !isLoading && (
             <>
