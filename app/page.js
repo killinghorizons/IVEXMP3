@@ -10,7 +10,7 @@ import MetadataTable from "@/components/MetadataTable";
 
 export default function Home() {
   const [files, setFiles] = useState([]);
-  const { metadataList, isLoading } = useExtractMetadata(files);
+  const { metadataList, isLoading, progress } = useExtractMetadata(files);
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function Home() {
           {/* Datatable */}
           {isLoading && (
             <div className="text-center py-4">
-              Extracting metadata, please don't runaway...
+              Loading metadata... {progress.completed} of {progress.total} files
             </div>
           )}
           {metadataList.length > 0 && !isLoading && (
